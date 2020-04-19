@@ -1,0 +1,7 @@
+#app .container .row .col-12 .card {
+  margin-top: 30px; }
+  #app .container .row .col-12 .card .card-header {
+    display: flex;
+    justify-content: space-between; }
+
+/*# sourceMappingURL=home_default.css.map */
