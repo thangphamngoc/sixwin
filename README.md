@@ -12,7 +12,7 @@ Thiết lập và kích hoạt api tại [fpt.ai](https://console.fpt.ai/getting
 
 ## Versioning
 
-PHP 7.2.2
+PHP 7.2.2,
 Frameword Laravel 6.18.7
 
 ## Authors
