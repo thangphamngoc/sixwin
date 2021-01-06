@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 // Route::group(['middleware' => 'auth:api'], function(){
 // 	Route::apiResources([
 // 		'loadtasks' =>'API\TasksController',
@@ -28,8 +28,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  // Route::get('loadtasks','API\TasksController@index');
 
 
-	Route::apiResources([
-		'loadtasks' =>'API\TasksController',
-        'customers' =>'API\CustomersController',
-	]);
+	// Route::apiResources([
+	// 	'loadtasks' =>'API\TasksController',
+    //     'customers' =>'API\CustomersController',
+	// ]);
  // Route::get('api/detailTask/','API\TasksController@detailTask');
+
+ Route::group(['prefix' => 'auth'], function () {
+    Route::post('register', 'AuthController@register');
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+});

@@ -11,5 +11,17 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.webpackConfig({
+   resolve: {
+      extensions: ['.js', '.vue'],
+      alias: {
+         '@': __dirname + '/resources/js',
+      }
+   }
+});
+
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+.js('node_modules/popper.js/dist/popper.js', 'public/js').sourceMaps()
+   .sass('resources/sass/style.scss', 'public/css');
+
+mix.js('resources/js/admin.js', 'public/js');

@@ -19,8 +19,8 @@ class CreateTableListTaskTable extends Migration
             $table->string('content');
             $table->string('link_sound');
             $table->integer('status');
-            $table->timestamps('updated_at');
-            $table->timestamps('created_at');
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

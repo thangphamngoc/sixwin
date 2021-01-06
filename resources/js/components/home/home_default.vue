@@ -134,6 +134,8 @@
 </style>
 
 <script>
+import HomeService from "@/services/HomeService";
+
 export default {
     data() {
         return {
@@ -163,7 +165,8 @@ export default {
                 return 'detail-task';
         },
     	getResults(page = 1) {
-            axios.get('/api/loadtasks?page=' + page)
+
+            HomeService.searchTask(page)
                 .then(response => {
                     this.listTask = response.data;
                 });
@@ -174,6 +177,7 @@ export default {
             $('#taskModal').modal('show');
         },
         createTask() {
+            // HomeService.createTask(this.form)
             this.form.post('/api/loadtasks')
                 .then(() => {
                     $('#taskModal').modal('hide');

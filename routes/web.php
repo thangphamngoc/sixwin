@@ -1,5 +1,5 @@
 <?php
-
+// use Illuminate\Routing\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,12 +11,31 @@
 |
 */
 
+
+
+Route::get('/{any}', 'AdminController@index')->where('any', '.*');
+
+
+
+
+
+
+
+
+
+
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('layouts.master');
-});
+// Route::get('/', function () {
+//     return view('layouts.master');
+// });
+
+// Route::get('/admin-add', function () {
+//     return view('layouts.app');
+// });
 
 
 // Auth::routes();

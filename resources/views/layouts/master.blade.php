@@ -17,7 +17,7 @@
                 <div class="container">
                     <!-- Logo (flex item 1)-->
                     <div class="logo">
-                        <a href="https://sixwin.io/">
+                        <a href="#">
                             <img src="https://sixwin.io/img/30.png" alt="sixwin Architecture &amp; Design">
                         </a>
                     </div>
