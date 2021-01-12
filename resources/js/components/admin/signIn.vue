@@ -8,24 +8,26 @@
           <div class="form sign-up">
             <div class="input-group">
               <i class="bx bxs-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Username" v-model="form.username" />
             </div>
             <div class="input-group">
               <i class="bx bx-mail-send"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" placeholder="Email" v-model="form.email"/>
             </div>
             <div class="input-group">
               <i class="bx bxs-lock-alt"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" v-model="form.password"/>
             </div>
             <div class="input-group">
               <i class="bx bxs-lock-alt"></i>
               <input type="password" placeholder="Confirm password" />
             </div>
-            <button>Sign up</button>
+            <button @click="register()">Sign up</button>
             <p>
               <span> Already have an account? </span>
-              <b onclick="toggle()" class="pointer pointer-customs"> Sign in here </b>
+              <b onclick="toggle()" class="pointer pointer-customs">
+                Sign in here
+              </b>
             </p>
           </div>
         </div>
@@ -53,19 +55,31 @@
           <div class="form sign-in">
             <div class="input-group">
               <i class="bx bxs-user"></i>
-              <input type="text" placeholder="Username" />
+              <input
+                type="text"
+                placeholder="Username"
+                v-model="form.email"
+                required
+              />
             </div>
             <div class="input-group">
               <i class="bx bxs-lock-alt"></i>
-              <input type="password" placeholder="Password" />
+              <input
+                type="password"
+                placeholder="Password"
+                v-model="form.password"
+                required
+              />
             </div>
-            <button>Sign in</button>
+            <button @click="signIn()">Sign in</button>
             <p>
               <b> Forgot password? </b>
             </p>
             <p>
               <span> Don't have an account? </span>
-              <b onclick="toggle()" class="pointer pointer-customs"> Sign up here </b>
+              <b onclick="toggle()" class="pointer pointer-customs">
+                Sign up here
+              </b>
             </p>
           </div>
         </div>
@@ -128,10 +142,10 @@
   </div>
 </template>
 <style scoped>
-@import '../../../../public/css/signIn.css';
+@import "../../../../public/css/signIn.css";
 @import url("https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css");
 
-.pointer-customs{
+.pointer-customs {
   color: #2d995b;
   font-size: 1.2rem;
 }
@@ -141,6 +155,14 @@
 export default {
   data() {
     return {
+      form: {
+        name: "",
+        email: "",
+        password: "",
+        error: false,
+        errors: {},
+        success: false,
+      },
       // listTask:{},
       // id:0,
       // name:'',
@@ -162,6 +184,22 @@ export default {
     // loadTask(page = 1){
     //  // axios.get("/api/loadtasks?page=" + page).then(({ data }) => (this.listTask = data));
     // }
+    register() {
+      alert("hi");
+
+      axios.post("/api/auth/register",this.form)
+        .then(() => {
+        })
+        .catch(() => {
+        });
+    },
+    signIn() {
+      axios.get("/api/auth/login",this.form)
+        .then(() => {
+        })
+        .catch(() => {
+        });
+    },
   },
   created() {
     var scripts = ["js/signIn.js"];
