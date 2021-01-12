@@ -17,8 +17,12 @@ Route::get('/{any}', 'AdminController@index')->where('any', '.*');
 
 
 
-
-
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('init', 'AppController@init');
+    Route::post('register', 'AppController@register');
+    Route::post('login', 'AppController@login');
+    Route::post('logout', 'AppController@logout');
+});
 
 
 

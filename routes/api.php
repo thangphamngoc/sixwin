@@ -34,8 +34,4 @@ use Illuminate\Http\Request;
 	// ]);
  // Route::get('api/detailTask/','API\TasksController@detailTask');
 
- Route::group(['prefix' => 'auth'], function () {
-    Route::post('/api/auth/register', 'AuthController@register');
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'AuthController@logout');
-});
+

@@ -156,12 +156,10 @@ export default {
   data() {
     return {
       form: {
-        name: "",
+        username: "",
         email: "",
         password: "",
-        error: false,
-        errors: {},
-        success: false,
+
       },
       // listTask:{},
       // id:0,
@@ -187,14 +185,14 @@ export default {
     register() {
       alert("hi");
 
-      axios.post("/api/auth/register",this.form)
+      axios.post("auth/register",this.form)
         .then(() => {
         })
         .catch(() => {
         });
     },
     signIn() {
-      axios.get("/api/auth/login",this.form)
+      axios.post("auth/login",this.form)
         .then(() => {
         })
         .catch(() => {
