@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\RegisterFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -21,7 +22,7 @@ class AuthController extends BaseController
      */
     public function register(RegisterFormRequest  $request)
     {
-        dd($request);
+        dd('hihi');
         $user = new User;
         $user->email = $request->email;
         $user->name = $request->name;
